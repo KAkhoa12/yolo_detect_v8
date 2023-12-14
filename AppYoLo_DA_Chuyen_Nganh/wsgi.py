@@ -15,4 +15,4 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AppYoLo_DA_Chuyen_Nganh.setting
 
 application = get_wsgi_application()
 
-app = application
+# app = application

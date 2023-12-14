@@ -27,8 +27,8 @@ def index(request):
 def loadImage(request):
     if request.method == 'POST':
         uploaded_images = request.FILES.getlist('images')
-        input_folder_path = os.path.join(settings.BASE_DIR, 'myapp/static/image/inputs')
-        predict_folder_path = os.path.join(settings.BASE_DIR, 'myapp/static/image/predict')
+        input_folder_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
+        predict_folder_path = os.path.join(settings.BASE_DIR, 'static/image/predict')
         if os.path.exists(predict_folder_path):
             shutil.rmtree(predict_folder_path)
         if os.path.exists(input_folder_path):
@@ -48,7 +48,7 @@ def loadImage(request):
 
 
 def predict_folder_content():
-    input_folder_path = os.path.join(settings.BASE_DIR, 'myapp/static/image/inputs')
+    input_folder_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
     return [f for f in os.listdir(input_folder_path) if os.path.isfile(os.path.join(input_folder_path, f))]
 
 
@@ -60,14 +60,14 @@ def predict_image_view(request):
     return render(request, 'myapp/load.html')
 
 def predictImage():
-    predict_folder_path = os.path.join(settings.BASE_DIR, 'myapp/static/image/predict')
-    best_pt_path = os.path.join(settings.BASE_DIR, 'myapp/datasets/best.pt')
-    best_yaml_path = os.path.join(settings.BASE_DIR, 'myapp/datasets/data.yaml')
-    best_img_path = os.path.join(settings.BASE_DIR, 'myapp/static/image/inputs')
+    predict_folder_path = os.path.join(settings.BASE_DIR, 'static/image/predict')
+    best_pt_path = os.path.join(settings.BASE_DIR, 'static/datasets/best.pt')
+    best_yaml_path = os.path.join(settings.BASE_DIR, 'static/datasets/data.yaml')
+    best_img_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
     if os.path.exists(predict_folder_path):
         shutil.rmtree(predict_folder_path)
     model = YOLO(best_pt_path,best_yaml_path)
-    model.predict(save=True,source=best_img_path,project="myapp/static/image",name="predict")
+    model.predict(save=True,source=best_img_path,project="static/image",name="predict")
     image_files = [f for f in os.listdir(predict_folder_path) if os.path.isfile(os.path.join(predict_folder_path, f))]
 
     # for image_file in image_files:
