@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <h1 class="text-5xl font-medium text-red-600 text-center py-8">MÔ HÌNH YOLOv8</h1>
+    <h2 class="text-3xl text-center font-base py-3">Danh sách hình ảnh của mô hình sau khi được lưu</h2>
+    <div class="grid grid-cols-12 gap-5 px-7">
+        {% for picture in pictures %}
+        <div class="col-span-6 overflow-hidden rounded-lg border border-solid border-black">
+            <img src="{{picture.image.url}}" class="w-full h-96 object-cover">
+        </div>
+        {% endfor %}
+    </div>
+    <div class="flex items-center justify-center py-6">
+        <a href="{% url 'upload' %}"
+            class="bg-gradient-to-r from-purple-500 to-pink-500 inline-block font-bold text-white py-3 px-12 rounded-lg">
+            Phát hiện ảnh bằng mô hình YOLO
+        </a>
+    </div>
+</body>
+
+</html>
