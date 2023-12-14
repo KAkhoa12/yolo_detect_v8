@@ -32,7 +32,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build','static')
+STATIC_URL = 'static/'
 # Application definition
 
 INSTALLED_APPS = [
