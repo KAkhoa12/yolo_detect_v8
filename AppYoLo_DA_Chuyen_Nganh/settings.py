@@ -27,8 +27,8 @@ SECRET_KEY = 'django-insecure-9ymxdoo395914j!cc+7*ca(uow3x&9-afw&irqbq55pwp6wku#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
+ALLOWED_HOSTS = ['34.143.251.116','10.148.0.4','kait.id.vn']
+#ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
 STATICFILES_DIRS = [BASE_DIR/'static',]
 STATIC_ROOT = BASE_DIR/'staticfiles'    
 # Application definition
@@ -115,7 +115,10 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
+CSRF_TRUSTED_ORIGINS = [
+    'http://34.143.251.116',
+    'http://kait.id.vn'
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/

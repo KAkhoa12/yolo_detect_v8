@@ -27,8 +27,10 @@ def index(request):
 def loadImage(request):
     if request.method == 'POST':
         uploaded_images = request.FILES.getlist('images')
-        input_folder_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
-        predict_folder_path = os.path.join(settings.BASE_DIR, 'static/image/predict')
+        #input_folder_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
+        #predict_folder_path = os.path.join(settings.BASE_DIR, 'static/image/predict')
+        input_folder_path = os.path.join(settings.BASE_DIR, '/home/ubuntu/worksapce/yolo_detect_v8/static/image/inputs')
+        predict_folder_path = os.path.join(settings.BASE_DIR, '/home/ubuntu/worksapce/yolo_detect_v8/static/image/predict')
         if os.path.exists(predict_folder_path):
             shutil.rmtree(predict_folder_path)
         if os.path.exists(input_folder_path):
@@ -48,7 +50,8 @@ def loadImage(request):
 
 
 def predict_folder_content():
-    input_folder_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
+    #input_folder_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
+    input_folder_path = os.path.join(settings.BASE_DIR, '/home/ubuntu/worksapce/yolo_detect_v8/static/image/inputs')
     return [f for f in os.listdir(input_folder_path) if os.path.isfile(os.path.join(input_folder_path, f))]
 
 
@@ -60,10 +63,14 @@ def predict_image_view(request):
     return render(request, 'myapp/load.html')
 
 def predictImage():
-    predict_folder_path = os.path.join(settings.BASE_DIR, 'static/image/predict')
-    best_pt_path = os.path.join(settings.BASE_DIR, 'static/datasets/best.pt')
-    best_yaml_path = os.path.join(settings.BASE_DIR, 'static/datasets/data.yaml')
-    best_img_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
+    predict_folder_path = os.path.join(settings.BASE_DIR, '/home/ubuntu/worksapce/yolo_detect_v8/static/image/predict')
+    best_pt_path = os.path.join(settings.BASE_DIR, '/home/ubuntu/worksapce/yolo_detect_v8/static/datasets/best.pt')
+    best_yaml_path = os.path.join(settings.BASE_DIR, '/home/ubuntu/worksapce/yolo_detect_v8/static/datasets/data.yaml')
+    best_img_path = os.path.join(settings.BASE_DIR, '/home/ubuntu/worksapce/yolo_detect_v8/static/image/inputs')
+    #predict_folder_path = os.path.join(settings.BASE_DIR, 'static/image/predict')
+    #best_pt_path = os.path.join(settings.BASE_DIR, 'static/datasets/best.pt')
+    #best_yaml_path = os.path.join(settings.BASE_DIR, 'static/datasets/data.yaml')
+    #best_img_path = os.path.join(settings.BASE_DIR, 'static/image/inputs')
     if os.path.exists(predict_folder_path):
         shutil.rmtree(predict_folder_path)
     model = YOLO(best_pt_path,best_yaml_path)
