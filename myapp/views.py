@@ -1,8 +1,8 @@
 from django.shortcuts import render,redirect
-from .models import library
+# from .models import library
 import shutil
 from cloudinary.uploader import upload
-from .forms import PictureForm
+# from .forms import PictureForm
 from cloudinary.api import resources
 from cloudinary.forms import cl_init_js_callbacks
 from ultralytics import YOLO
@@ -70,16 +70,7 @@ def predictImage():
     model.predict(save=True,source=best_img_path,project="static/image",name="predict")
     image_files = [f for f in os.listdir(predict_folder_path) if os.path.isfile(os.path.join(predict_folder_path, f))]
 
-    # for image_file in image_files:
-    #     image_path = os.path.join(predict_folder_path, image_file)
-
-    #     upload_result = upload(image_path,folder='YOLO_Detect')
-
-    #     library.objects.create(
-    #         title=f"Image {image_file}",
-    #         description=f"Description for Image {image_file}",
-    #         image=upload_result['secure_url']
-    #     )
+  
     return image_files
     
 

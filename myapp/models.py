@@ -1,8 +1,19 @@
-from django.db import models
-from cloudinary.models import CloudinaryField
-# Create your models here.
+from djongo import models
 
-class library(models.Model):
-    title = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
-    image = CloudinaryField('image')
+
+from djongo import models
+
+class Image(models.Model):
+    _id = models.ObjectIdField()
+    urlImage = models.URLField()
+
+
+class Users(models.Model):
+    _id = models.ObjectIdField(primary_key=True)
+    name = models.CharField(max_length=50)
+    age = models.IntegerField()
+    birthDate = models.DateField()
+    images = models.ArrayField( model_container=Image)
+    isState = models.BooleanField(default=True)
+
+

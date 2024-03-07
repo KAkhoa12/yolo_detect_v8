@@ -79,10 +79,14 @@ WSGI_APPLICATION = 'AppYoLo_DA_Chuyen_Nganh.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'djongo',
+        'CLIENT':{
+            'host':'mongodb+srv://huynhdangkhoawork:AeOGIJfQgQNS2aHF@cluster0.f7l1yuy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',
+            'name':'kaitStudy',
+            'authMechanism': 'SCRAM-SHA-1',
+        }
+    }
 }
 
 
