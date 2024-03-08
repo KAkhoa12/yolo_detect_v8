@@ -22,7 +22,14 @@ def index(request):
     # ]
 
     # ctx = {'pictures': images}
-    return render(request, 'myapp/index.html')
+    # return render(request, 'myapp/pages/yolo/index.html')
+    return render(request, 'myapp/pages/home/index.html')
+
+def listModel(request):
+    return render(request, 'myapp/pages/home/listModal.html')
+
+def modalYolo(request):
+    return render(request, 'myapp/pages/yolo/index.html')
 
 def loadImage(request):
     if request.method == 'POST':
@@ -42,8 +49,8 @@ def loadImage(request):
                 for chunk in uploaded_image.chunks():
                     destination.write(chunk)
 
-        return render(request, 'myapp/load.html', context={'image_files_input': predict_folder_content()})
-    return render(request, 'myapp/load.html')
+        return render(request, 'myapp/pages/yolo/load.html', context={'image_files_input': predict_folder_content()})
+    return render(request, 'myapp/pages/yolo/load.html')
 
 
 
@@ -56,8 +63,8 @@ def predict_image_view(request):
     if request.method == 'POST':
         result = predictImage()
         ctx = {"image_files":result,'image_files_input': predict_folder_content()}
-        return render(request, 'myapp/load.html',ctx)
-    return render(request, 'myapp/load.html')
+        return render(request, 'myapp/pages/yolo/load.html',ctx)
+    return render(request, 'myapp/pages/yolo/load.html')
 
 def predictImage():
     predict_folder_path = os.path.join(settings.BASE_DIR, 'static/image/predict')
