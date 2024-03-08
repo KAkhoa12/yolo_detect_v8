@@ -33,6 +33,18 @@ STATICFILES_DIRS = [BASE_DIR/'static',]
 STATIC_ROOT = BASE_DIR/'staticfiles'    
 # Application definition
 
+
+from google.oauth2 import service_account
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(os.path.join(BASE_DIR,'credential.json'))
+
+
+DEFAULT_FILE_STORAGE='django_blog_project.gcloud.GoogleCloudMediaFileStorage'
+GS_PROJECT_ID = 'pragmatic-ruler-414605'
+GS_BUCKET_NAME = 'kait_bucket_django'
+MEDIA_ROOT = "media/"
+UPLOAD_ROOT = 'media/uploads/'
+MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
