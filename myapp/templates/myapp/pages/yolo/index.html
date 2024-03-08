@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body>
+{% extends '../../Layouts/main.html' %}
+{%block content%}
     <h1 class="text-5xl font-medium text-red-600 text-center py-8">MÔ HÌNH YOLOv8</h1>
     <h2 class="text-3xl text-center font-base py-3">Danh sách hình ảnh của mô hình sau khi được lưu</h2>
     <div class="grid grid-cols-12 gap-5 px-7">
@@ -25,6 +15,4 @@
             Phát hiện ảnh bằng mô hình YOLO
         </a>
     </div>
-</body>
-
-</html>
+{%endblock%}

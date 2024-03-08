@@ -1,0 +1,31 @@
+{% extends '../../Layouts/main.html' %}
+{% load static %}
+{%block content%}
+<section class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+        <div class="grid grid-cols-12 mx-12 gap-2">
+            <div class="col-span-3">
+                <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="{% static 'assets/images/65bf0578ede71e497341db0d_Blog_thumbnail_1920x1080.webp' %}"
+                        alt="blog">
+                    <div class="p-6">
+                        <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">AI / MACHINE LEARNING</h2>
+                        <h1 class="title-font text-lg font-medium text-gray-900 mb-3">Mô hình YOLO v8</h1>
+                        <p class="leading-relaxed mb-3">
+                            Dùng mô hình yolo v8 để phát hiện các phương tiên giao thông trên thành phố Hồ Chi Minh
+                        </p>
+                        <div class="flex items-center flex-wrap ">
+                            <a href="{% url 'modelYolo' %}" class="text-red-500 inline-flex items-center gap-1 ">
+                                <span>
+                                    Xem Ngay
+                                </span>
+                                <i class="ri-arrow-right-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
