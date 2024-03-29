@@ -1,0 +1,91 @@
+
+body::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+body{
+    scroll-behavior: smooth;
+}
+body::-webkit-scrollbar
+{
+	width: 12px;
+	background-color: #F5F5F5;
+}
+
+body::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #000;
+}
+
+.btn {
+    font-size: 17px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    border-width: 2px ;
+    border-color: black;
+    border-style: solid;
+}
+
+
+.btn:hover {
+    transition: all 0.2s linear;
+    color: #fff
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50px;
+    width: 150%;
+    height: 100%;
+    background-color: #000;
+    transform: scaleX(0) skewX(35deg);
+    transform-origin: left;
+    z-index: -1;
+    transition: transform 0.5s;
+}
+
+.btn:hover::before {
+    transform: scaleX(1) skewX(35deg);
+}
+
+.input {
+    font-size: 17px; 
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background-color: white;
+}
+.input input{
+    outline: none;
+    background:transparent;
+}
+
+.input textarea{
+    outline: none;
+    width: 100%;
+    min-height: 250px;
+}
+.input-lable{
+    font-weight: 400;
+    color:#333;
+    font-size: 16px;
+    padding: 5px 0;
+    display: inline-block;
+}
+
+.input-item{
+    padding: 10px 0;
+}
+
+
+
+
