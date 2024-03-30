@@ -5,10 +5,11 @@
 </head>
 <body>
     {% include './header.html' %}
-    <main>
+    <main class="mx-12 max-sm:mx-8 main-content">
         {% block content%}
 
         {% endblock %}
     </main>
+    {% include './footer.html' %}
 </body>
 </html>

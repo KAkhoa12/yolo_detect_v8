@@ -1,0 +1,81 @@
+{% extends '../../Layouts/main.html' %}
+{% load static %}
+{%block content%}
+
+<div class="my-32">
+    <div class="flex items-center  gap-3 text-black py-5">
+        <a href="/">Home</a>
+        <i class="ri-arrow-right-double-line"></i>
+        <a href="{% url 'listModel'%}" class="font-semibold ">All models</a>
+        <i class="ri-arrow-right-double-line"></i>
+        <a href="{% url 'modelGan'%}" class="font-semibold ">GAN Face2Comic dataset</a>
+        <i class="ri-arrow-right-double-line"></i>
+        <a href="{% url 'uploadGanComic2Face'%}" class="font-semibold ">GAN Face2Comic dataset - Comic to Face</a>
+    </div>
+    <a href="{% url 'modelGan'%}" class="group flex items-center gap-3 py-5">
+        <span class="inline-block bg-black rounded-full bg-black w-8 h-8 text-lime-400 flex items-center justify-center">
+            <i class="ri-arrow-left-up-line text-2xl group-hover:-rotate-45 transition-all"></i>
+        </span>
+        <span class="font-semibold text-2xl">
+            Go Back
+        </span> 
+    </a>
+    <div class="flex gap-5 ml-16 py-5">
+        <span class="inline-block bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
+            Comic to Face
+        </span>
+        <p class="text-gray-600">
+            Create images from comic book faces to human faces
+        </p>
+    </div>
+    <div class="">
+        <div class="grid grid-cols-12 px-8 gap-5">
+            <div class="col-span-6">
+                <div class="my-3 rounded-lg bg-black text-white px-5 py-3">
+                    <form method="post" enctype="multipart/form-data" action="{% url 'uploadGanComic2Face' %}"
+                        class="w-full flex justify-between items-center ">
+                        {% csrf_token %}
+                        <input type="file" name="images" accept="image/*" multiple>
+                        <button type="submit"
+                            class="btn bg-lime-300 text-black hover:text-black font-semibold">
+                            Upload Image
+                        </button>
+                    </form>
+                </div>
+                <div class="px-8 grid grid-cols-12 gap-5 border-black border-solid border my-4 py-3 rounded-lg overflow-scroll "
+                    style="height: 500px;">
+                    {% for image_file in image_files_input %}
+                    <div class="col-span-12 " style="height: 400px;">
+                        <img src="{% static 'image/inputs/' %}{{ image_file }}" class="img_GAN object-cover"
+                            alt="{{ image_file }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-span-6">
+                <div class="my-3 rounded-lg bg-black text-white px-5 py-3">
+                    <form method="post" action="{% url 'predictGanComic2Face' %}"
+                        class="flex w-full justify-center items-center">
+                        {% csrf_token %}
+                        <!-- Thêm các trường form cần thiết nếu có -->
+                        <button type="submit"
+                            class="btn bg-lime-300 text-black hover:text-black font-semibold">
+                            Generate image face to comics
+                        </button>
+                    </form>
+                </div>
+                <div class="px-8 grid grid-cols-12 gap-5 border-black border-solid border my-4 py-3 rounded-lg overflow-scroll "
+                    style="height: 500px;">
+                    {% for image_file in image_files %}
+                    <div class="col-span-12 " style="height: 400px;">
+                        <img src="{% static 'image/predict/' %}{{ image_file }}" class="img_GAN object-cover"
+                            alt="{{ image_file }}">
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

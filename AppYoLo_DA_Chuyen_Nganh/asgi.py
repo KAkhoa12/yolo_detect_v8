@@ -14,3 +14,4 @@ from django.core.asgi import get_asgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'AppYoLo_DA_Chuyen_Nganh.settings')
 
 application = get_asgi_application()
+    

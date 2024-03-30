@@ -1,5 +1,137 @@
 {% extends '../../Layouts/main.html' %}
+{% load static %}
 {%block content%}
-    {% include '../../Layouts/banner.html'%}
-    <span>Trang chủ</span>
+{% include '../../Layouts/banner.html'%}
+<div class="bg-gray-100 rounded-lg p-8  grid gap-4 grid-cols-12">
+    <div class="lg:col-span-7 md:col-span-12 max-sm:col-span-12  flex flex-col gap-4">
+        <h2 class="text-2xl font-semibold ">Any Questions ? </h2>
+        <p class="py-3 text-lg">
+            Contact us to support and answer any questions you ask or you can feedback to us to email <a
+                href="mailto:huynhdangkhoa.work@gmail.com">huynhdangkhoa.work@gmail.com</a> here !
+        </p>
+        <div>
+            <a href="mailto:huynhdangkhoa.work@gmail.com" class="btn z-40 flex-none">
+                Send message to my email here
+                <i class="ri-mail-send-line"></i>
+            </a>
+
+        </div>
+    </div>
+    <div class="lg:col-span-5 md:hidden lg:block relative">
+        <img src="{% static 'assets/images/homepage-stars.svg' %}" class="absolute -top-2/4" alt="Image homepage-stars">
+    </div>
+</div>
+<div class="my-24">
+    <div class="flex gap-5 ml-16">
+        <div>
+            <span class="inline-block  bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
+                Learning
+            </span>
+        </div>
+        <p class="text-gray-600">
+            We also have a few model machine learning for modal testing in the process of upgrading <br>
+            Come and test
+        </p>
+    </div>
+    <div id="models" class="my-10 grid lg:grid-cols-3 md:grid-cols-2 gap-10  ">
+
+    </div>
+</div>
+<div id="aboutme" class="my-24">
+    <div class="flex gap-5 ml-16">
+        <span class="inline-block bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
+            About me
+        </span>
+        <p class="text-gray-600">
+            Some information about me
+        </p>
+    </div>
+    <div class="bg-gray-900 text-white p-12 text-lg rounded-3xl my-10 leading-9">
+        Hello, I'm Huynh Dang Khoa! Currently, I am a final-year student at Ho Chi Minh City University of Industry and
+        Trade. I am in the process of following two paths that I love the most: artificial intelligence, machine
+        learning, deep learning, and machine vision. computing, image processing, data analysis in general, the first
+        path I like is slightly more inclined towards Data Science, the second path is also the path to unleash my
+        passion, which is the path of design. Design, I really like to design beautiful websites that bring a suitable
+        UI/UX process for customers accessing my websites, I created this website to target those of you who have the
+        same passion as me. each other and share on my website, you can support me by donating a cup of coffee to me so
+        I can be motivated to continue sharing this content, thank you for reading.
+    </div>
+</div>
+<div class="my-24">
+    <div class="flex gap-5 ml-16">
+        <span class="inline-block bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
+            Contact us
+        </span>
+        <p class="text-gray-600">
+            If you have any questions <br />
+            Contact us
+        </p>
+    </div>
+    <div class="bg-gray-100 relative grid grid-cols-12 text-lg rounded-3xl my-10 ">
+        <div class="p-12 px-24 z-30 lg:col-span-8 md:col-span-12">
+            <h3 class="text-gray-800">Hi there!</h3>
+            <form action="">
+                <div class="input-item">
+                    <label for="name" class="input-lable">Name: </label>
+                    <div class="input">
+                        <input id="name" placeholder="Type your name " type="text">
+                    </div>
+                </div>
+                <div class="input-item">
+                    <label for="email" class="input-lable">Email: </label>
+                    <div class="input">
+                        <input id="email" placeholder="Type your email" type="email">
+                    </div>
+                </div>
+                <div class="input-item">
+                    <label for="message" class="input-lable">Message: </label>
+                    <div class="input">
+                        <textarea id="message" placeholder="Type your message" type="text"></textarea>
+                    </div>
+                </div>
+                <button class="btn z-40 block w-full ">
+                    SEND MESSAGE
+                    <i class="ri-send-plane-line"></i>
+                </button>
+            </form>
+        </div>
+        <div class="flex items-center md:z-20 justify-end md:h-full md:right-0 lg:col-span-4 md:absolute lg:relative">
+            <img src="{% static 'assets/images/homepage-contact.svg' %}" class="backgroud_home-contact md:h-full" alt="image ">
+        </div>
+    </div>
+</div>
+<div class="my-24">
+    <div class="wrapper">
+        <i id="left" class="ri-arrow-drop-left-line"></i>
+        <ul id="logo-container" class="carousel">
+            
+        </ul>
+        <i id="right" class="ri-arrow-drop-right-line"></i>
+    </div>
+</div>
+<script src="{% static 'assets/js/loadingModels.js' %}"></script>
+<script src="{% static 'assets/js/carousel.js' %}"></script>
+
+<!-- Tab links -->
+<!-- <div class="tabs">
+    <button class="tablinks active" data-electronic="allproducts">Tất cả sản phẩm</button>
+    <button class="tablinks" data-electronic="Microcontrollers">Vi điều khiển - Nhúng</button>
+    <button class="tablinks" data-electronic="module">Module ứng dụng</button>
+ </div> -->
+
+ <!-- Tab content -->
+ <!-- <div class="wrapper_tabcontent">
+    <div id="allproducts" class="tabcontent active">
+      <img src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/sp1-949f885f-8d8a-445e-be5c-0cce06cdb4b1.jpg?v=1582441789000" width="100%"/>
+      <h3>Combo Trạm Hàn Hakko 936 + Sensor Hàn A1321</h3>
+    </div>
+    <div id="Microcontrollers" class="tabcontent">
+           <img src="https://bizweb.dktcdn.net/thumb/large/100/228/168/products/raspberry-pi-4-model-b.jpg?v=1566526980000" width="100%"/>
+      <h3>Raspberry Pi 4 Model B 2019</h3>
+    </div>
+    <div id="module" class="tabcontent">
+      <img src="//bizweb.dktcdn.net/thumb/large/100/228/168/products/sp1-96b83938-650f-4f51-8b0a-61ee9f8f9039.jpg?v=1580721383000" width="100%"/>
+      <h3>Module Khuếch Đại Âm Thanh Bluetooth Stereo 30W/40W Công Suất Cao XY-P40W</h3>
+    </div>
+ </div> -->
 {%endblock%}

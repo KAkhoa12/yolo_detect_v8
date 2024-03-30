@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
-import cloudinary
+# import cloudinary
 import os
-import cloudinary.api_client
-import cloudinary.uploader
+# import cloudinary.api_client
+# import cloudinary.uploader
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +27,11 @@ SECRET_KEY = 'django-insecure-9ymxdoo395914j!cc+7*ca(uow3x&9-afw&irqbq55pwp6wku#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+<<<<<<< HEAD
 ALLOWED_HOSTS = ['34.143.251.116','10.148.0.4','kait.id.vn']
+=======
+ALLOWED_HOSTS = []
+>>>>>>> main
 #ALLOWED_HOSTS = ['.vercel.app','.now.sh','127.0.0.1','localhost']
 STATICFILES_DIRS = [BASE_DIR/'static',]
 STATIC_ROOT = BASE_DIR/'staticfiles'    
@@ -38,9 +42,17 @@ from google.oauth2 import service_account
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(os.path.join(BASE_DIR,'credential.json'))
 
 
+<<<<<<< HEAD
 DEFAULT_FILE_STORAGE='django_blog_project.gcloud.GoogleCloudMediaFileStorage'
 GS_PROJECT_ID = 'pragmatic-ruler-414605'
 GS_BUCKET_NAME = 'kait_bucket_django'
+=======
+DEFAULT_FILE_STORAGE = "storages.backends.gcloud.GoogleCloudStorage"
+GS_PROJECT_ID = 'pragmatic-ruler-414605'
+GS_BUCKET_NAME = 'kait_bucket_django'
+    
+GS_BLOB_CHUNK_SIZE = 1024 * 256 * 40 
+>>>>>>> main
 MEDIA_ROOT = "media/"
 UPLOAD_ROOT = 'media/uploads/'
 MEDIA_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
@@ -53,7 +65,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'myapp',
-    'cloudinary'
+    'djongo'
+    # 'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -146,9 +159,9 @@ STATICFILES_DIRS=[
 ]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-cloudinary.config(
-    cloud_name = "dpa8dyxil",
-    api_key="435291857494115",
-    api_secret ="uwajykGq-jlx5tzjv6sOA3gomhI",
-    secure = True
-)
+# cloudinary.config(
+#     cloud_name = "dpa8dyxil",
+#     api_key="435291857494115",
+#     api_secret ="uwajykGq-jlx5tzjv6sOA3gomhI",
+#     secure = True
+# )

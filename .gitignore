@@ -1,2 +1,6 @@
-venv/
+myvenv/
 db.sqlite3
+static/datasets/*.h5
+static/datasets/*.rar
+
+

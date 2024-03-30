@@ -1,0 +1,23 @@
+{%load static%}
+<div class="lg:hidden">
+    <input type="checkbox" hidden id="sidebarleft"/>
+    <label for="sidebarleft" class="menu-bar-btn max-sm:h-10 max-sm:w-10 max-sm:text-lg block bg-black h-16 w-16 text-3xl text-lime-300 rounded-full flex items-center justify-center">
+        <i class="ri-menu-line"></i>
+    </label>
+    <label for="sidebarleft" class="hidden menu-bar-modal bg-black/40 fixed top-0 right-0 left-0 bottom-0 z-20 ">
+
+    </label>
+    <div class="menu-bar-content bg-slate-900 z-30 p-5">
+        <label for="sidebarleft" class="flex items-center justify-end">
+            <span class="text-lime-300">
+                <i class="ri-close-fill text-6xl"></i>
+            </span>
+        </label>
+        <div class="sidebar-items-left flex flex-col items-center pt-32 text-lime-300 gap-6 justify-center">
+
+        </div>
+        <div class="w-full flex items-center justify-center p-10">
+            <img src="{% static 'assets/images/logo-lime.png' %}" alt="logo">
+        </div>
+    </div>
+</div>
