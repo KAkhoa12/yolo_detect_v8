@@ -6,7 +6,6 @@
 ### 2. Mở môi trường ảo
 ```
     source myvenv/Scripts/activate
-    source myvenv/Scripts/activate 
 ```
 
 

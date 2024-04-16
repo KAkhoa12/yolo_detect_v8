@@ -22,8 +22,8 @@
     </div>
 </div>
 <div class="my-24">
-    <div class="flex gap-5 ml-16">
-        <div>
+    <div class="flex gap-5 ml-16 max-sm:flex max-sm:flex-col max-sm:m-0">
+        <div class="flex justify-center">
             <span class="inline-block  bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
                 Learning
             </span>
@@ -38,15 +38,17 @@
     </div>
 </div>
 <div id="aboutme" class="my-24">
-    <div class="flex gap-5 ml-16">
-        <span class="inline-block bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
-            About me
-        </span>
+    <div class="flex gap-5 ml-16 max-sm:flex items-center max-sm:flex-col max-sm:m-0">
+        <div class="flex justify-center">
+            <span class="inline-block  bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
+                About me
+            </span>
+        </div>
         <p class="text-gray-600">
             Some information about me
         </p>
     </div>
-    <div class="bg-gray-900 text-white p-12 text-lg rounded-3xl my-10 leading-9">
+    <div class="bg-gray-900 text-white p-12 max-sm:p-5 text-lg rounded-3xl my-10 leading-9">
         Hello, I'm Huynh Dang Khoa! Currently, I am a final-year student at Ho Chi Minh City University of Industry and
         Trade. I am in the process of following two paths that I love the most: artificial intelligence, machine
         learning, deep learning, and machine vision. computing, image processing, data analysis in general, the first
@@ -58,17 +60,19 @@
     </div>
 </div>
 <div class="my-24">
-    <div class="flex gap-5 ml-16">
-        <span class="inline-block bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
-            Contact us
-        </span>
+    <div class="flex gap-5 ml-16  max-sm:flex max-sm:flex-col max-sm:m-0 items-center">
+        <div class="flex justify-center">
+            <span class="inline-block  bg-lime-300 p-1 px-2 font-semibold text-3xl rounded-lg">
+                Contact us
+            </span>
+        </div>
         <p class="text-gray-600">
             If you have any questions <br />
             Contact us
         </p>
     </div>
     <div class="bg-gray-100 relative grid grid-cols-12 text-lg rounded-3xl my-10 ">
-        <div class="p-12 px-24 z-30 lg:col-span-8 md:col-span-12">
+        <div class="p-12 px-24 z-30 lg:col-span-8 md:col-span-12 max-sm:col-span-12 max-sm:p-4">
             <h3 class="text-gray-800">Hi there!</h3>
             <form action="">
                 <div class="input-item">
@@ -95,7 +99,7 @@
                 </button>
             </form>
         </div>
-        <div class="flex items-center md:z-20 justify-end md:h-full md:right-0 lg:col-span-4 md:absolute lg:relative">
+        <div class="flex max-sm:hidden items-center md:z-20 justify-end md:h-full md:right-0 lg:col-span-4 md:absolute lg:relative">
             <img src="{% static 'assets/images/homepage-contact.svg' %}" class="backgroud_home-contact md:h-full" alt="image ">
         </div>
     </div>

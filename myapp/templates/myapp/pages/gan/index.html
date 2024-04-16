@@ -2,7 +2,7 @@
 {% load static %}
 {%block content%}
 <section class="text-gray-600 h-auto body-font">
-    <div class="py-20 pb-12 grid gap-10 grid-cols-2">
+    <div class="py-20 pb-12 grid gap-10 grid-cols-2 ">
         <div class="flex items-center  gap-3 text-black py-5 col-span-2">
             <a href="/">Home</a>
             <i class="ri-arrow-right-double-line"></i>
@@ -10,11 +10,11 @@
             <i class="ri-arrow-right-double-line"></i>
             <a href="{% url 'modelGan'%}" class="font-semibold ">GAN Face2Comic dataset</a>
         </div>
-        <div class="h-full">
-            <img class="lg:w-full lg:h-full rounded-bl-3xl rounded-tr-3xl md:w-3/6 w-5/6  object-cover object-center"
+        <div class="h-full flex justify-center lg:col-span-1 md:col-span-2 max-sm:col-span-2 sm:col-span-2">
+            <img class="lg:w-full lg:h-full  rounded-bl-3xl rounded-tr-3xl md:w-3/6 w-5/6  object-cover object-center"
                 alt="hero" src="{% static 'assets/images/face2comics_v2.0.0_by_Sxela_preview_10x10x256.jpg' %}">
         </div>
-        <div class="text-center  lg:w-full w-full flex items-center justify-center flex-col">
+        <div class="text-center lg:w-full lg:col-span-1 w-full flex items-center justify-center flex-col md:col-span-2 max-sm:col-span-2 sm:col-span-2">
             <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
                 Mạng sinh đối nghịch GAN <br> (Generative Adversarial Network)
             </h1>
@@ -22,7 +22,7 @@
                 Dùng mạng sinh đối nghịch GAN để tạo ra những hình ảnh từ ảnh người sang ảnh truyện tranh và từ ảnh
                 truyện tranh sang ảnh người, với bộ tập dữ liệu Face2Comics
             </p>
-            <div class="flex justify-center w-full flex-col gap-6">
+            <div class="flex justify-center items-center w-full flex-col gap-6">
                 <a href="{% url 'uploadGanFace2Comic' %} "
                     class="btn bg-lime-300 w-2/4 hover:bg-lime-300 w-full py-4 hover:text-black rounded-3xl font-semibold">
                     Try model GAN Face to Comic 

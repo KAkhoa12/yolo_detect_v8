@@ -72,7 +72,7 @@ listModels.map((item, index) => {
 listLogo.map((item) => {
     const template = `
             <li class="card h-full">
-                <img class="h-32 grayscale hover:grayscale-0 transition-all duration-500 object-cover" src="/static/assets/images/${item}" />  
+                <img class="h-32 max-sm:w-full grayscale hover:grayscale-0 transition-all duration-500 object-cover" src="/static/assets/images/${item}" />  
             </li>
         `
     logoContainer.insertAdjacentHTML('beforeend', template);
