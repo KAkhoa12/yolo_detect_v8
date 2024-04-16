@@ -28,7 +28,59 @@
             Create images from comic book faces to human faces
         </p>
     </div>
-    <div class="">
+    <div class="grid grid-cols-12 px-8 gap-5">
+        <div class="col-span-12 flex items-center justify-center gap-12 my-10 lg:flex-row sm:flex-col max-sm:flex-col">
+            <div class="image_input_style">
+                <input type="file" name="images" id="file" accept="image/*" hidden />
+                <div class="image-container flex items-center justify-center relative">
+                    <div class="flex flex-col items-center absolute w-full h-full justify-center">
+                        <i class="ri-image-line text-4xl"></i>
+                        <h2>No image choses</h2>
+                    </div>
+                    <img id="image" />
+                </div>
+                <div class="py-2 flex items-center justify-center gap-5">
+                    <label for="file"
+                        class="bg-lime-300 flex items-center justify-center w-12 h-12 relative rounded-full text-2xl before:absolute before:border-2 before:border-solid before:rounded-full before:top-1 before:w-10 before:h-10 before:border-black cursor-pointer">
+                        <i class="ri-folder-2-line"></i>
+                    </label>
+                    <button type="submit" id="preview"
+                        class="hidden bg-lime-300 flex items-center justify-center w-12 h-12 relative rounded-full text-2xl before:absolute before:border-2 before:border-solid before:rounded-full before:top-1 before:w-10 before:h-10 before:border-black cursor-pointer">
+                        <i class="ri-check-line"></i>
+                    </button>
+                </div>
+            </div>
+            <div id="arow_image" class="hidden sm:rotate-90 max-sm:rotate-90 lg:rotate-0">
+                <span class="arow_image block ">
+                    <i class="ri-arrow-right-double-line text-4xl "></i>
+                </span>
+            </div>
+            <div id="preview_image-container" class="">
+                <div class="preview-container">
+                    <img id="preview-image" />
+                </div>
+                <div class="flex gap-5 items-center justify-center">
+                    <a href="" id="download"
+                        class="py-2 hidden bg-lime-300 flex items-center justify-center w-12 h-12 relative rounded-full text-2xl before:absolute before:border-2 before:border-solid before:rounded-full before:top-1 before:w-10 before:h-10 before:border-black cursor-pointer">
+                        <i class="ri-download-2-line"></i>
+                    </a>
+                    <button id="submit_predict"
+                        class="text-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex items-center justify-center py-2 px-5 relative rounded-sm text-lg before:absolute before:border-2 before:border-solid  before:top-1 before:top-1 before:bottom-1 before:left-1  before:right-1 before:border-white cursor-pointer">
+                        Generate Image
+                    </button>
+                </div>
+            </div>
+            <div id="arow_image_predict" class="hidden sm:rotate-90 max-sm:rotate-90 lg:rotate-0">
+                <span class="arow_image block max-sm:rotate-90 sm:rotate-90 ">
+                    <i class="ri-arrow-right-double-line text-4xl  "></i>
+                </span>
+            </div>
+            <div id="predict_image">
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="">
         <div class="grid grid-cols-12 px-8 gap-5">
             <div class="col-span-6">
                 <div class="my-3 rounded-lg bg-black text-white px-5 py-3">
@@ -57,7 +109,6 @@
                     <form method="post" action="{% url 'predictGanComic2Face' %}"
                         class="flex w-full justify-center items-center">
                         {% csrf_token %}
-                        <!-- Thêm các trường form cần thiết nếu có -->
                         <button type="submit"
                             class="btn bg-lime-300 text-black hover:text-black font-semibold">
                             Generate image face to comics
@@ -75,7 +126,55 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
+<script src="{% static 'assets/js/cropImage.js' %}"></script>
+<script>
+    document.getElementById('submit_predict').addEventListener('click', function () {
+        const arow_image_predict = document.getElementById("arow_image_predict");
+        var submitButton = this; // Lưu tham chiếu của nút submit_predict
+        submitButton.innerHTML = `
+            <i class="ri-loader-4-line animate-spin"></i>
+        `;
+        var imgElement = document.getElementById('preview-image');
+        var imgUrl = imgElement.src;
+        var formData = new FormData();
+        formData.append('image_url', imgUrl);
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '{% url "predictGanComic2Face" %}', true);
+        xhr.onload = function () {
+            if (xhr.status >= 200 && xhr.status < 400) {
+                submitButton.innerHTML = `
+                    Generate Image
+                `;
+                arow_image_predict.classList.remove("hidden")
 
+                var response = JSON.parse(xhr.responseText);
+                var generatedImagePaths = response.image_files;
+                var imageContainer = document.getElementById('predict_image');
+                imageContainer.classList.remove("hidden")
+                imageContainer.innerHTML="";
+                generatedImagePaths.forEach((path) => {
+                    imageContainer.innerHTML += `
+                        <div class="predict_image-container">
+                            <img src="{% static 'image/predict/' %}${path}" class="w-full h-full" /> 
+                            <a href="{% static 'image/predict/' %}${path}" download="${path}" id="download-predict"
+                                class="py-2 flex bg-lime-300 flex items-center justify-center w-12 h-12 relative rounded-full text-2xl before:absolute before:border-2 before:border-solid before:rounded-full before:top-1 before:w-10 before:h-10 before:border-black cursor-pointer">
+                                <i class="ri-download-2-line"></i>
+                            </a>
+                        </div>
+                    `;
+                });
+
+            } else {
+                // Xử lý trường hợp lỗi nếu cần thiết
+                submitButton.innerHTML = `
+                    Generate Image
+                `;
+            } 
+        };
+        xhr.send(formData);
+    });
+
+</script>
 {%endblock%}

@@ -5,14 +5,14 @@ const  listNavbar = [
     },
     {
         "path":"/models/",
-        "name":"Model Machine learning"
+        "name":"Models"
     },
     {
         "path":"#",
         "name":"Blog"
     },
     {
-        "path":"#",
+        "path":"/#aboutme",
         "name":"About me"
     }
 ]
@@ -26,6 +26,6 @@ listNavbar.forEach(item => {
 });
 
 listNavbar.forEach(item => {
-    const link = `<a href="${item.path}" class="mr-5 text-4xl font-thin">${item.name}</a>`;
+    const link = `<a href="${item.path}" class="mr-5 text-2xl font-thin">${item.name}</a>`;
     navbarleft.insertAdjacentHTML('beforeend', link);
 });
